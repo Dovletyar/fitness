@@ -14,10 +14,13 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           _searchField(),
+          //Boşluk için SizedBox
           const SizedBox(
             height: 40,
           ),
+          //"Category" Text
           const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsets.only(left: 20),
@@ -31,6 +34,20 @@ class HomePage extends StatelessWidget {
                 ),
               )
             ],
+          ),
+          //Boşluk için SizedBox
+          const SizedBox(
+            height: 15,
+          ),
+          //Category Row
+          Container(
+            height: 150,
+            color: Colors.green,
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                return Container();
+              },
+            ),
           ),
         ]),
       ),
