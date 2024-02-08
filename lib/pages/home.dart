@@ -10,30 +10,83 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "Breakfast",
-            style: TextStyle(
-                color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+        appBar: appBar(),
+        body: Column(children: [
+          Container(
+            margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                color: HexColor(shadowColor).withOpacity(0.11),
+                blurRadius: 40,
+                spreadRadius: 0.0,
+              ),
+            ]),
+            child: TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                contentPadding: const EdgeInsets.all(15),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
           ),
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-          centerTitle: true,
-          leading: Container(
+        ]),
+      ),
+    );
+  }
+
+  //AppBar
+  AppBar appBar() {
+    return AppBar(
+      title: const Text(
+        "Breakfast",
+        style: TextStyle(
+            color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+      ),
+      backgroundColor: Colors.white,
+      elevation: 0.0,
+      centerTitle: true,
+      leading:
+          //Arrow Left SvgPicture Button
+          GestureDetector(
+        onTap: () {},
+        child: Container(
+          margin: const EdgeInsets.all(10),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: HexColor(secondaryColor),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: SvgPicture.asset(
+            "assets/icons/Arrow - Left 2.svg",
+            height: 20,
+            width: 20,
+          ),
+        ),
+      ),
+      //Dots SvgPicture Button
+      actions: [
+        GestureDetector(
+          onTap: () {},
+          child: Container(
             margin: const EdgeInsets.all(10),
             alignment: Alignment.center,
+            width: 37,
             decoration: BoxDecoration(
               color: HexColor(secondaryColor),
               borderRadius: BorderRadius.circular(10),
             ),
             child: SvgPicture.asset(
-              "assets/icons/Arrow - Left 2.svg",
-              height: 20,
-              width: 20,
+              "assets/icons/dots.svg",
+              height: 5,
+              width: 5,
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }
